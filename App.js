@@ -2,24 +2,29 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  const clickHandler = () => console.log('Clicked!');
+export default class App extends React.Component {
+  state = {
+    counter :0,
+  };
 
-  return (
-    <View style={{flexDirection: 'row',
-      height: 100,
-      padding:20,
-      }}>
-      {/* <View style={{backgroundColor: 'blue', flex:0.3}}></View>
-      <View style={{backgroundColor: 'red', flex:0.5}}></View>
-      <Text>Hello, world!</Text>
-      <Text style={[styles.textBig, styles.textRed]}>Hello, world!</Text> */}
-      <Button title={'click me'} onPress={clickHandler}></Button>
-      <StatusBar style="auto" />
-    </View>
-   
-  );
-}
+  render() {
+    // 클릭할때 마다 COUNT가 하나씩 증가하는 함수 
+    const  clickHandler = () => {
+      this.setState({
+        counter : this.state.counter+1,
+      });
+    }
+    return (
+      <View style={styles.container}>
+        <Text>{this.state.counter}</Text>
+        <Button title={'click me!'} onPress={clickHandler}/>
+        <StatusBar style="auto" />
+      </View>
+    );
+  };
+  
+};
+
 
 const styles = StyleSheet.create({
   container: {
