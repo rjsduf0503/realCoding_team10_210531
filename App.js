@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 //expo install react-native-safe-area-context 설치 후에!
 // import { SafeAreaView } from 'react-native-safe-area-context'; 왜 안될까요... 밑에 포함시키니 되네요 why?
-import { SafeAreaView,Image, StyleSheet,Text, ScrollView,View  } from 'react-native';
+import { FlatList,SafeAreaView,Image, StyleSheet,Text, ScrollView,View  } from 'react-native';
 // class CounterButton extends React.Component {
 //   static defaultProps = {
 //     // 초기값을 입력하지 않았을경우에 -1로 초기화
@@ -120,9 +120,14 @@ export default class App extends React.Component {
   render() {
     return (
       <SafeAreaView style={styles.fullscreen}>
-        <ScrollView style={styles.container}>
+        {/* <ScrollView style={styles.container}> // 과일 리스트를 랜더링
           {this.fruits.map(this.renderItem)}
-        </ScrollView>
+        </ScrollView> */}
+        {/* FlatList :  많은 양의 스크롤이 필요한 리스트 아이템을 보여주고자 할 때 쓰이는 리액트네이티브 컴포넌트, map과 비슷하다. */}
+        <FlatList style={styles.container}  
+          renderItem={({ item }) => this.renderItem(item)}
+          data={this.fruits}
+        />
       </SafeAreaView>
     );  
   }
