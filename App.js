@@ -57,7 +57,7 @@ export default class App extends React.Component {
   renderItem(city) {  //아이템을 받아와 렌더링
     return (
       // TouchableOpacity: button 컴포넌트와 비슷한것 ios와 안드로이드에서 차이가 없다.
-      <TouchableOpacity style={styles.item} onPress={this.onPressCity}>
+      <TouchableOpacity style={styles.item} onPress={() => this.onPressCity(city)}>
         <Text style={styles.text}>{city}</Text>
       </TouchableOpacity>
     );
