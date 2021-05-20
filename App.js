@@ -4,10 +4,16 @@ import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{flexDirection: 'row',
+      height: 100,
+      padding:20,
+      }}>
+      <View style={{backgroundColor: 'blue', flex:0.3}}></View>
+      <View style={{backgroundColor: 'red', flex:0.5}}></View>
+      <Text>Hello, world!</Text>
+      <StatusBar style="auto" />git add .
     </View>
+   
   );
 }
 
@@ -18,4 +24,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  defaultText: {fontColor:'black'},
+  headerText: {fontWeight:'bold'},
+  title : {
+      fontSize:19,
+      fontWeight: 'bold',
+  },
+  activeTitle: {
+      color: 'red',
+  }
 });
