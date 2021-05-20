@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 
 // class CounterButton extends React.Component {
 //   static defaultProps = {
@@ -36,14 +36,11 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {/* <CounterButton counter={0}/>
-        <CounterButton />
-        <CounterButton counter={2}/>
-        <CounterButton counter={3}/>
-        <CounterButton counter={4}/> */}
-        <Text style={styles.text}>1</Text>
-        <Text style={styles.text}>2</Text>
-        <Text style={[styles.text,styles.text2]}>3</Text>
+        <Image source={{
+            uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png",
+            width: 128,
+            height: 128,
+          }} />
         <StatusBar style="auto" />
       </View>
     );  
@@ -53,22 +50,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'stretch',  //? 위아래 꽉차게..?
+    borderWidth:2,
+    borderColor: 'red',
+    // alignItems: 'stretch',  //? 위아래 꽉차게..?
     justifyContent: 'center',
+    alignItems: 'center',
     // flexDirection: 'row', //일렬로 나열하게 배치 뺴면 위아래로 배치된다. 
   },
-  buttonContainer : {
-    alignItems: 'center',
-    width: '100%',
-    borderWidth: 2,
-    borderColor: 'purple',
-  },
-  text : {
-    flex:1,   //row 만큼의 공간을 꽉차게 배열
-    borderWidth:1,
-    borderColor: 'red',
-  },
-  text2 : {
-    flex:2,   //flex 1, flex1, flex2가 있다면 4만큼의 고간에서 2는 2만큼의 공간을 차지하게 한다. 
-  },
+  // buttonContainer : {
+  //   alignItems: 'center',
+  //   width: '100%',
+  //   borderWidth: 2,
+  //   borderColor: 'purple',
+  // },
+  // text : {
+  //   flex:1,   //row 만큼의 공간을 꽉차게 배열
+  //   borderWidth:1,
+  //   borderColor: 'red',
+  // },
+  // text2 : {
+  //   flex:2,   //flex 1, flex1, flex2가 있다면 4만큼의 고간에서 2는 2만큼의 공간을 차지하게 한다. 
+  // },
 });
