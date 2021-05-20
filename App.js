@@ -11,7 +11,7 @@ export default function App() {
       <View style={{backgroundColor: 'blue', flex:0.3}}></View>
       <View style={{backgroundColor: 'red', flex:0.5}}></View>
       <Text>Hello, world!</Text>
-      <Text style={styles.textBig}>Hello, world!</Text>
+      <Text style={[styles.textBig, styles.textRed]}>Hello, world!</Text>
       <StatusBar style="auto" />
     </View>
    
@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
   },
   textBig: {
     fontSize:32,
+  },
+  textRed : {
+    color='red'
   },
   defaultText: {fontColor:'black'},
   headerText: {fontWeight:'bold'},
