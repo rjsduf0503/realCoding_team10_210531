@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 //expo install react-native-safe-area-context 설치 후에!
 // import { SafeAreaView } from 'react-native-safe-area-context'; 왜 안될까요... 밑에 포함시키니 되네요 why?
-import { FlatList,SafeAreaView,Image, StyleSheet,Text, ScrollView,View  } from 'react-native';
+import { FlatList,SafeAreaView, StyleSheet,Text,View  } from 'react-native';
 // class CounterButton extends React.Component {
 //   static defaultProps = {
 //     // 초기값을 입력하지 않았을경우에 -1로 초기화
@@ -34,91 +34,27 @@ import { FlatList,SafeAreaView,Image, StyleSheet,Text, ScrollView,View  } from '
   
 // };
 export default class App extends React.Component {
-  // fruits = [
-  //   { name: 'Acai' },
-  //   { name: 'Apples' },
-  //   { name: 'Apricots' },
-  //   { name: 'Avocado' },
-  //   { name: 'Ackee' },
-  //   { name: 'Bananas' },
-  //   { name: 'Bilberries' },
-  //   { name: 'Blueberries' },
-  //   { name: 'Blackberries' },
-  //   { name: 'Boysenberries' },
-  //   { name: 'Bread fruit' },
-  //   { name: 'Cantaloupes (cantalope)' },
-  //   { name: 'Chocolate-Fruit' },
-  //   { name: 'Cherimoya' },
-  //   { name: 'Cherries' },
-  //   { name: 'Cranberries' },
-  //   { name: 'Cucumbers' },
-  //   { name: 'Currants' },
-  //   { name: 'Dates' },
-  //   { name: 'Durian' },
-  //   { name: 'Eggplant' },
-  //   { name: 'Elderberries' },
-  //   { name: 'Figs' },
-  //   { name: 'Gooseberries' },
-  //   { name: 'Grapes' },
-  //   { name: 'Grapefruit' },
-  //   { name: 'Guava' },
-  //   { name: 'Honeydew melons' },
-  //   { name: 'Horned melon (Kiwano)' },
-  //   { name: 'Huckleberries' },
-  //   { name: 'Ita Palm' },
-  //   { name: 'Jujubes' },
-  //   { name: 'Kiwis' },
-  //   { name: 'Durian is an unusual tropical fruit.' },
-  //   { name: 'Kumquat' },
-  //   { name: 'Lemons' },
-  //   { name: 'Limes' },
-  //   { name: 'Lychees' },
-  //   { name: 'Mangos' },
-  //   { name: 'Mangosteen' },
-  //   { name: 'Mulberries' },
-  //   { name: 'Muskmelon' },
-  //   { name: 'Nectarines' },
-  //   { name: 'Ogden melons' },
-  //   { name: 'Olives' },
-  //   { name: 'Oranges' },
-  //   { name: 'Papaya' },
-  //   { name: 'Passion fruit' },
-  //   { name: 'Peaches' },
-  //   { name: 'Pears' },
-  //   { name: 'Peppers' },
-  //   { name: 'Persimmon' },
-  //   { name: 'Pineapple' },
-  //   { name: 'Plums' },
-  //   { name: 'Pluot' },
-  //   { name: 'Pomegranate' },
-  //   { name: 'Prickly Pear' },
-  //   { name: 'Quince' },
-  //   { name: 'Rambuton' },
-  //   { name: 'Raspberries' },
-  //   { name: 'Rose Apple' },
-  //   { name: 'Starfruit' },
-  //   { name: 'Sapadilla' },
-  //   { name: 'Strawberries' },
-  //   { name: 'Tamarind' },
-  //   { name: 'Tangelo' },
-  //   { name: 'Tangerines' },
-  //   { name: 'Tomatoes' },
-  //   { name: 'Ugli fruit' },
-  //   { name: 'Voavanga (Spanish Tamarind)' },
-  //   { name: 'Watermelons' },
-  //   { name: 'Xigua melon' },
-  //   { name: 'Yellow watermelon' },
-  //   { name: 'Zucchini' },
-  // ];
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      cities: [],
+    };
+  }
   componentDidMount() {
     fetch('https://raw.githubusercontent.com/example0312/weather-crawler/e3168f2b4e316691f8ab385f738783976eef7f0d/availableCityNames')
       .then(response => response.json())
-      .then(console.log);
+      .then(cities => {
+        console.log('cities =', cities.length);
+        this.setState({
+          cities
+        });
+      });
   }
-  renderItem({ name }) {  //아이템을 받아와 렌더링
+  renderItem(city) {  //아이템을 받아와 렌더링
     return (
       <View style={styles.item}>
-        <Text style={styles.text}>{name}</Text>
+        <Text style={styles.text}>{city}</Text>
       </View>
     );
   }
@@ -130,9 +66,9 @@ export default class App extends React.Component {
         </ScrollView> */}
         {/* FlatList :  많은 양의 스크롤이 필요한 리스트 아이템을 보여주고자 할 때 쓰이는 리액트네이티브 컴포넌트, map과 비슷하다. */}
         <FlatList style={styles.container}  
-          keyExtractor={(item) => item.name}
+          keyExtractor={item => item}
           renderItem={({ item }) => this.renderItem(item)}
-          data={this.fruits}
+          data={this.state.cities}
         />
       </SafeAreaView>
     );  
