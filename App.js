@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 //expo install react-native-safe-area-context 설치 후에!
 // import { SafeAreaView } from 'react-native-safe-area-context'; 왜 안될까요... 밑에 포함시키니 되네요 why?
-import { SafeAreaView,Image, StyleSheet,Text, ScrollView  } from 'react-native';
+import { SafeAreaView,Image, StyleSheet,Text, ScrollView,View  } from 'react-native';
 // class CounterButton extends React.Component {
 //   static defaultProps = {
 //     // 초기값을 입력하지 않았을경우에 -1로 초기화
@@ -38,42 +38,21 @@ export default class App extends React.Component {
     return (
       <SafeAreaView style={styles.fullscreen}>
         <ScrollView style={styles.container}>
-          <Text style={{fontSize:96}}>Scroll me plz</Text>
-          <Image source={{
-              uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png",
-              width: 128,
-              height: 128,
-            }} />
-          <Text style={{fontSize:96}}>Scroll me plz</Text>
-          <Image source={{
-              uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png",
-              width: 128,
-              height: 128,
-            }} />
-          <Text style={{fontSize:96}}>Scroll me plz</Text>
-          <Image source={{
-              uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png",
-              width: 128,
-              height: 128,
-            }} />
-          <Text style={{fontSize:96}}>Scroll me plz</Text>
-          <Image source={{
-              uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png",
-              width: 128,
-              height: 128,
-            }} />
-          <Text style={{fontSize:96}}>Scroll me plz</Text>
-          <Image source={{
-              uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png",
-              width: 128,
-              height: 128,
-            }} />
-          <Text style={{fontSize:96}}>Scroll me plz</Text>
-          <Image source={{
-              uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png",
-              width: 128,
-              height: 128,
-            }} />
+          <View style={styles.item}>
+              <Text style={styles.text}>Apple</Text>
+            </View>
+            <View style={styles.item}>
+              <Text style={styles.text}>Banana</Text>
+            </View>
+            <View style={styles.item}>
+              <Text style={styles.text}>Cherries</Text>
+            </View>
+            <View style={styles.item}>
+              <Text style={styles.text}>Damson plum</Text>
+            </View>
+            <View style={styles.item}>
+              <Text style={styles.text}>...</Text>
+            </View>
         </ScrollView>
       </SafeAreaView>
     );  
@@ -104,11 +83,17 @@ const styles = StyleSheet.create({
   //   borderWidth: 2,
   //   borderColor: 'purple',
   // },
-  // text : {
-  //   flex:1,   //row 만큼의 공간을 꽉차게 배열
-  //   borderWidth:1,
-  //   borderColor: 'red',
-  // },
+  item: {
+    flex: 1,
+    height: 50,
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: 'orange',
+  },
+  text: {
+    fontSize: 20,
+    textAlign: 'center',
+  },
   // text2 : {
   //   flex:2,   //flex 1, flex1, flex2가 있다면 4만큼의 고간에서 2는 2만큼의 공간을 차지하게 한다. 
   // },
