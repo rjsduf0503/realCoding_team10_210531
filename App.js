@@ -55,6 +55,8 @@ const styles = StyleSheet.create({
   },
   buttonContainer : {
     alignItems: 'center',
-    width: 300,
+    width: '100%',
+    borderWidth: 2,
+    borderColor: 'purple',
   }
 });
