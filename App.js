@@ -3,9 +3,14 @@ import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
 class CounterButton extends React.Component {
-  state = {
-    counter :0,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      // 카운트 초기값 설정
+      counter: props.counter,
+    };
+  }
 
   render() {
     // 클릭할때 마다 COUNT가 하나씩 증가하는 함수 
@@ -27,11 +32,11 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <CounterButton />
-        <CounterButton />
-        <CounterButton />
-        <CounterButton />
-        <CounterButton />
+        <CounterButton counter={0}/>
+        <CounterButton counter={1}/>
+        <CounterButton counter={2}/>
+        <CounterButton counter={3}/>
+        <CounterButton counter={4}/>
         <StatusBar style="auto" />
       </View>
     );  
