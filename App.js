@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 //expo install react-native-safe-area-context 설치 후에!
 // import { SafeAreaView } from 'react-native-safe-area-context'; 왜 안될까요... 밑에 포함시키니 되네요 why?
-import { FlatList,SafeAreaView, StyleSheet,Text,View  } from 'react-native';
+import { FlatList,SafeAreaView, StyleSheet,Text,View,TouchableOpacity   } from 'react-native';
 // class CounterButton extends React.Component {
 //   static defaultProps = {
 //     // 초기값을 입력하지 않았을경우에 -1로 초기화
@@ -51,11 +51,15 @@ export default class App extends React.Component {
         });
       });
   }
+  onPressCity(item) {
+    console.log('onPressCity =', item);
+  }
   renderItem(city) {  //아이템을 받아와 렌더링
     return (
-      <View style={styles.item}>
+      // TouchableOpacity: button 컴포넌트와 비슷한것 ios와 안드로이드에서 차이가 없다.
+      <TouchableOpacity style={styles.item} onPress={this.onPressCity}>
         <Text style={styles.text}>{city}</Text>
-      </View>
+      </TouchableOpacity>
     );
   }
   render() {
