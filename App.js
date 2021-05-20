@@ -43,7 +43,7 @@ export default class App extends React.Component {
         <CounterButton counter={4}/> */}
         <Text style={styles.text}>1</Text>
         <Text style={styles.text}>2</Text>
-        <Text style={styles.text}>3</Text>
+        <Text style={[styles.text,styles.text2]}>3</Text>
         <StatusBar style="auto" />
       </View>
     );  
@@ -53,9 +53,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    alignItems: 'stretch',  //? 위아래 꽉차게..?
     justifyContent: 'center',
-    flexDirection: 'row', //일렬로 나열하게 배치
+    // flexDirection: 'row', //일렬로 나열하게 배치 뺴면 위아래로 배치된다. 
   },
   buttonContainer : {
     alignItems: 'center',
@@ -64,8 +64,11 @@ const styles = StyleSheet.create({
     borderColor: 'purple',
   },
   text : {
-    flex:1,
+    flex:1,   //row 만큼의 공간을 꽉차게 배열
     borderWidth:1,
     borderColor: 'red',
-  }
+  },
+  text2 : {
+    flex:2,   //flex 1, flex1, flex2가 있다면 4만큼의 고간에서 2는 2만큼의 공간을 차지하게 한다. 
+  },
 });
