@@ -112,7 +112,7 @@ export default class App extends React.Component {
   ];
   renderItem({ name }) {  //아이템을 받아와 렌더링
     return (
-      <View style={styles.item}>
+      <View style={styles.item} key={name}>
         <Text style={styles.text}>{name}</Text>
       </View>
     );
