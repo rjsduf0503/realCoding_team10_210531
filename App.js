@@ -3,6 +3,8 @@ import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
+  const clickHandler = () => console.log('Clicked!');
+
   return (
     <View style={{flexDirection: 'row',
       height: 100,
@@ -12,7 +14,7 @@ export default function App() {
       <View style={{backgroundColor: 'red', flex:0.5}}></View>
       <Text>Hello, world!</Text>
       <Text style={[styles.textBig, styles.textRed]}>Hello, world!</Text> */}
-      <Button title={'click me'} onPress={() => console.log('Clicked!')}></Button>
+      <Button title={'click me'} onPress={clickHandler}></Button>
       <StatusBar style="auto" />
     </View>
    
