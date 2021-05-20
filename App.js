@@ -11,7 +11,8 @@ export default function App() {
       <View style={{backgroundColor: 'blue', flex:0.3}}></View>
       <View style={{backgroundColor: 'red', flex:0.5}}></View>
       <Text>Hello, world!</Text>
-      <StatusBar style="auto" />git add .
+      <Text style={styles.textBig}>Hello, world!</Text>
+      <StatusBar style="auto" />
     </View>
    
   );
@@ -23,6 +24,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  textBig: {
+    fontSize:32,
   },
   defaultText: {fontColor:'black'},
   headerText: {fontWeight:'bold'},
