@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     borderColor: 'purple',
   },
   text : {
+    flex:1,
     borderWidth:1,
     borderColor: 'red',
   }
