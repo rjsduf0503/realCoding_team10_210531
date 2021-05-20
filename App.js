@@ -112,7 +112,7 @@ export default class App extends React.Component {
   ];
   renderItem({ name }) {  //아이템을 받아와 렌더링
     return (
-      <View style={styles.item} key={name}>
+      <View style={styles.item}>
         <Text style={styles.text}>{name}</Text>
       </View>
     );
@@ -125,6 +125,7 @@ export default class App extends React.Component {
         </ScrollView> */}
         {/* FlatList :  많은 양의 스크롤이 필요한 리스트 아이템을 보여주고자 할 때 쓰이는 리액트네이티브 컴포넌트, map과 비슷하다. */}
         <FlatList style={styles.container}  
+          keyExtractor={(item) => item.name}
           renderItem={({ item }) => this.renderItem(item)}
           data={this.fruits}
         />
