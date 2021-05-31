@@ -3,11 +3,11 @@ import { FlatList, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 export default class CityList extends React.Component {constructor(props) {
     super(props);
-
     this.state = {
       cities: [],
     };
   }
+
   componentDidMount() {
     fetch('https://raw.githubusercontent.com/example0312/weather-crawler/e3168f2b4e316691f8ab385f738783976eef7f0d/availableCityNames')
       .then(response => response.json())
@@ -18,9 +18,12 @@ export default class CityList extends React.Component {constructor(props) {
         });
       });
   }
+
   onPressCity(item) {
     console.log('onPressCity =', item);
+    this.props.navigation.navigate('Detail');
   }
+
   renderItem(city) {  //아이템을 받아와 렌더링
     return (
       // TouchableOpacity: button 컴포넌트와 비슷한것 ios와 안드로이드에서 차이가 없다.
@@ -29,6 +32,7 @@ export default class CityList extends React.Component {constructor(props) {
       </TouchableOpacity>
     );
   }
+  
   render() {
       return(
         // {/* <ScrollView style={styles.container}> // 과일 리스트를 랜더링
