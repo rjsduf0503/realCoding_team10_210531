@@ -32,7 +32,7 @@ export default class CityList extends React.Component {constructor(props) {
       </TouchableOpacity>
     );
   }
-  
+
   render() {
       return(
         // {/* <ScrollView style={styles.container}> // 과일 리스트를 랜더링
