@@ -8,7 +8,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import CityList from './CityList';
 
 
-//expo install react-native-safe-area-context 설치 후에!
 const HomeScreen = () => (
   <View style={styles.container}>
     <CityList/>
@@ -32,6 +31,7 @@ export default class App extends React.Component {
           <Stack.Screen
             name="Home"
             component={HomeScreen}
+            options={{ title: 'Cities' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
