@@ -53,7 +53,7 @@ renderTemperature() {
         navigation,
       } = this.props;
 
-      navigation.setOptions({ title: `Weather Information: ${city}` });
+      navigation.setOptions({ title: `${city} 날씨` });
 
     if (this.state.isLoading) {
       return (
