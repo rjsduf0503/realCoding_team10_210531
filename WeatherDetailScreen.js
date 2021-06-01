@@ -82,7 +82,9 @@ renderTemperature() {
     return (
       <View style={styles.container}>
         {this.renderTemperature()}
-        {this.renderWeatherCondition()}
+        <View style={styles.conditionContainer}>
+          {this.renderWeatherCondition()}
+        </View>
       </View>
     );
   }
@@ -95,4 +97,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
   },
+  conditionContainer: {
+    flexDirection: 'row',
+  }
 });
