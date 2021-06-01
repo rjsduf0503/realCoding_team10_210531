@@ -1,14 +1,16 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { ActivityIndicator, StyleSheet, View, Text } from 'react-native';
+import Constants from 'expo-constants';
 
-const API_KEY = '{MY_KEY}'; //여기에 API 키 값 받아서 넣으세요
-const queryUrl = (city) => 'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}'
+const {
+  apiKey,
+  baseUrl,
+  region,
+} = Constants.manifest.extra.openWeatherApi;
+
+const queryUrl = (city) => `${baseUrl}/weather?q=${city}&appid=${apiKey}&lang=${region}`
 
 export default class WeatherDetailScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Weather Information',
-  };
-
   constructor(props) {
     super(props);
 
@@ -35,20 +37,35 @@ export default class WeatherDetailScreen extends React.Component {
       });
   }
 
+renderTemperature() {
+    const celsius = this.state.main.temp - 273.15;
+
+    return (
+      <Text>온도: {celsius.toFixed(1)}</Text>
+    )
+  }
+
   render() {
+      const {
+        route: {
+          params: { city },
+        },
+        navigation,
+      } = this.props;
+
+      navigation.setOptions({ title: `Weather Information: ${city}` });
+
     if (this.state.isLoading) {
       return (
         <View style={styles.container}>
-          <Text>데이터를 불러오는 중입니다.</Text>
+          <ActivityIndicator size="large" />
         </View>
       )
     }
-//    console.log(this.state.main.temp);
-    let celsius = this.state.main.temp - 273.15;
 
     return (
       <View style={styles.container}>
-        <Text>온도: {celsius.toFixed(1)}</Text>
+        {this.renderTemperature()}
       </View>
     );
   }
@@ -57,6 +74,8 @@ export default class WeatherDetailScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+        backgroundColor: '#8888FF',
+        alignItems: 'center',
+        justifyContent: 'center',
   },
 });
