@@ -1,14 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-const API_KEY = '{MY_KEY}'; //여기에 API 키 값 받아서 넣으세요
-const queryUrl = (city) => 'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}'
+const API_KEY = '{0769b09df9a71d9d76ec1756ade964e4}'; //여기에 API 키 값 받아서 넣으세요
+const queryUrl = (city) => `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=0769b09df9a71d9d76ec1756ade964e4`
+//const queryUrl = (city) => `https://api.openweathermap.org/data/2.5/weather?q${city}&appid=${API_KEY}`
 
 export default class WeatherDetailScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Weather Information',
-  };
-
   constructor(props) {
     super(props);
 
@@ -36,6 +33,15 @@ export default class WeatherDetailScreen extends React.Component {
   }
 
   render() {
+      const {
+        route: {
+          params: { city },
+        },
+        navigation,
+      } = this.props;
+
+      navigation.setOptions({ title: `Weather Information: ${city}` });
+
     if (this.state.isLoading) {
       return (
         <View style={styles.container}>
