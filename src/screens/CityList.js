@@ -40,6 +40,7 @@ export default class CityList extends React.Component {constructor(props) {
         // {this.fruits.map(this.renderItem)} </ScrollView> */}
         // {/* FlatList :  많은 양의 스크롤이 필요한 리스트 아이템을 보여주고자 할 때 쓰이는 리액트네이티브 컴포넌트, map과 비슷하다. */}
         <FlatList style={styles.container}  
+        numColumns={3}
         keyExtractor={item => item}
         renderItem={({ item }) => this.renderItem(item)}
         data={this.state.cities}
@@ -60,11 +61,11 @@ const styles = StyleSheet.create({
       height: 50,
       justifyContent: 'center',
   
-      borderWidth: 1,
-      borderColor: 'orange',
+      // borderWidth: 1,
+      // borderColor: 'orange',
     },
     text: {
-      fontSize: 20,
+      fontSize: 14,
       textAlign: 'center',
     }
   });
