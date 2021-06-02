@@ -4,3 +4,5 @@ class CityListApi {
 }
 
 export default new CityListApi();
+
+

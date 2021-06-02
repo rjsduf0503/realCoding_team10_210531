@@ -17,6 +17,6 @@ export default {
         region: REGION,
     },
 
-      googleApiKey: GOOGLE_API_KEY,
+    googleApiKey: GOOGLE_API_KEY,
   },
 };
