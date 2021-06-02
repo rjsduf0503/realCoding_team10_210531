@@ -1,12 +1,9 @@
 import React from 'react';
 import { ActivityIndicator, Image,StyleSheet, View, Text } from 'react-native';
-<<<<<<< HEAD
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import openWeatherApi from '../api/OpenWeatherApi'
 import Constants from 'expo-constants'
 import _get from 'lodash.get';
-=======
-import Constants from 'expo-constants';
 
 const {
   apiKey,
@@ -15,7 +12,6 @@ const {
 } = Constants.manifest.extra.openWeatherApi;
 
 const queryUrl = (city) => `${baseUrl}/weather?q=${city}&appid=${apiKey}&lang=${region}`
->>>>>>> 4281b9fc8ca4d098b954b1a2bfc4566d4f83a520
 
 export default class WeatherDetailScreen extends React.Component {
   constructor(props) {

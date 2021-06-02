@@ -16,10 +16,7 @@
     "expo-splash-screen": "~0.4.0",
     "expo-status-bar": "^1.0.0",
     "expo-updates": "~0.2.10",
-<<<<<<< HEAD
     "lodash.get": "^4.4.2",
-=======
->>>>>>> 4281b9fc8ca4d098b954b1a2bfc4566d4f83a520
     "react": "~16.11.0",
     "react-dom": "~16.11.0",
     "react-native": "~0.62.2",
