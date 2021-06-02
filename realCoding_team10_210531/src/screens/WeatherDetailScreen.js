@@ -1,21 +1,9 @@
 import React from 'react';
 import { ActivityIndicator, Image,StyleSheet, View, Text } from 'react-native';
-<<<<<<< HEAD
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import openWeatherApi from '../api/OpenWeatherApi'
 import Constants from 'expo-constants'
 import _get from 'lodash.get';
-=======
-import Constants from 'expo-constants';
-
-const {
-  apiKey,
-  baseUrl,
-  region,
-} = Constants.manifest.extra.openWeatherApi;
-
-const queryUrl = (city) => `${baseUrl}/weather?q=${city}&appid=${apiKey}&lang=${region}`
->>>>>>> 4281b9fc8ca4d098b954b1a2bfc4566d4f83a520
 
 export default class WeatherDetailScreen extends React.Component {
   constructor(props) {
@@ -27,20 +15,9 @@ export default class WeatherDetailScreen extends React.Component {
   }
 
   componentDidMount() {
-<<<<<<< HEAD
     this.setState({isLoadig: true})
 
     openWeatherApi.fetchWeatherInfoByCithName(this.props.route.params.city)
-=======
-    const {
-      route: {
-        params: { city },
-      },
-    } = this.props;
-
-    fetch(queryUrl(city))
-      .then(response => response.json())
->>>>>>> 4281b9fc8ca4d098b954b1a2bfc4566d4f83a520
       .then(info => {
         console.log(info);
         this.setState({
@@ -57,7 +34,6 @@ renderTemperature() {
       <Text>온도: {celsius.toFixed(1)}</Text>
     )
   }
-<<<<<<< HEAD
     renderClouds() {
         const clouds = _get(this.state, ['clouds', 'all'], null);
 
@@ -114,26 +90,11 @@ renderTemperature() {
             height: 48
           }} />
           <Text style={styles.textCondition}>{description}</Text>
-=======
-  renderWeatherCondition() {
-    // https://openweathermap.org/weather-conditions
-    return this.state.weather.map(({
-      icon,
-    }, index) => {
-      return (
-        <View key={index}>
-          <Image source={{
-            uri: `http://openweathermap.org/img/wn/${icon}@2x.png`,
-            width: 72,
-            height: 72
-          }} />
->>>>>>> 4281b9fc8ca4d098b954b1a2bfc4566d4f83a520
         </View>
       );
     });
   }
 
-<<<<<<< HEAD
     renderGoogleMap() {
         const {
             lat, lon
@@ -160,9 +121,6 @@ renderTemperature() {
 
 
     render() {
-=======
-  render() {
->>>>>>> 4281b9fc8ca4d098b954b1a2bfc4566d4f83a520
       const {
         route: {
           params: { city },
@@ -182,7 +140,6 @@ renderTemperature() {
 
     return (
       <View style={styles.container}>
-<<<<<<< HEAD
         {this.renderClouds()}
         {this.renderTemperature()}
           {this.renderWind()}
@@ -191,12 +148,6 @@ renderTemperature() {
         </View>
 
           {this.renderGoogleMap()}
-=======
-        {this.renderTemperature()}
-        <View style={styles.conditionContainer}>
-          {this.renderWeatherCondition()}
-        </View>
->>>>>>> 4281b9fc8ca4d098b954b1a2bfc4566d4f83a520
       </View>
     );
   }
@@ -209,7 +160,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
   },
-<<<<<<< HEAD
   inRow: {
     flexDirection: 'row',
   },
@@ -236,9 +186,5 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         transform: [{ rotate: "5deg" }]
-=======
-  conditionContainer: {
-    flexDirection: 'row',
->>>>>>> 4281b9fc8ca4d098b954b1a2bfc4566d4f83a520
   }
 });
